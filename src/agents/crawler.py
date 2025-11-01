@@ -113,11 +113,12 @@ Flag Format: {flag_format}
 
 Create a strategic crawling plan that identifies:
 1. Key areas to focus on
-2. Potential hidden endpoints to discover  
-3. Forms and parameters to examine
+2. Potential hidden directories and files to discover  
+3. Forms and functionality to examine
 4. Technology stack to identify
 5. Common CTF vulnerability patterns to look for
 
+Focus on directory and file discovery, not URL parameter fuzzing.
 Return a JSON object with strategy, focus_areas, and discovery_techniques.""")
         ])
         
@@ -143,7 +144,7 @@ Return a JSON object with strategy, focus_areas, and discovery_techniques.""")
                 return {
                     "strategy": "comprehensive_crawl",
                     "focus_areas": ["forms", "admin_panels", "file_uploads"],
-                    "discovery_techniques": ["directory_bruteforce", "parameter_discovery", "js_analysis"]
+                    "discovery_techniques": ["directory_bruteforce", "js_analysis"]
                 }
                 
         except Exception as e:
@@ -285,10 +286,6 @@ Return a JSON object with strategy, focus_areas, and discovery_techniques.""")
         # Directory discovery
         if 'directory_bruteforce' in discovery_techniques:
             self._discover_directories(state)
-        
-        # Parameter discovery
-        if 'parameter_discovery' in discovery_techniques:
-            self._discover_parameters(state)
             
         # JavaScript analysis  
         if 'js_analysis' in discovery_techniques:
@@ -308,20 +305,6 @@ Return a JSON object with strategy, focus_areas, and discovery_techniques.""")
             test_url = urljoin(base_url, directory)
             if test_url not in self.visited_urls:
                 self._crawl_url(test_url, state, depth=1)
-    
-    def _discover_parameters(self, state: CTFState):
-        """Try to discover hidden parameters"""
-        # Analyze existing forms for parameter patterns
-        common_params = ['id', 'user', 'file', 'path', 'url', 'cmd', 'page', 'debug']
-        
-        for page in state.crawled_pages:
-            base_url = page.url
-            
-            # Test common parameters
-            for param in common_params:
-                test_url = f"{base_url}?{param}=test"
-                if test_url not in self.visited_urls:
-                    self._crawl_url(test_url, state, depth=1)
     
     def _analyze_javascript(self, state: CTFState):
         """Analyze JavaScript for API endpoints and functionality"""
@@ -399,7 +382,27 @@ Return a JSON analysis with:
                 content = str(response)
             
             import json
-            return json.loads(content)
+            try:
+                # Clean the content - sometimes LLMs add markdown formatting
+                clean_content = content.strip()
+                if clean_content.startswith('```json'):
+                    clean_content = clean_content.split('\n', 1)[1]
+                if clean_content.endswith('```'):
+                    clean_content = clean_content.rsplit('\n', 1)[0]
+                
+                return json.loads(clean_content)
+                
+            except (json.JSONDecodeError, ValueError) as e:
+                logger.warning(f"Failed to parse JSON response: {e}")
+                logger.warning(f"Response content: {content[:200]}...")
+                # Return structured fallback based on what we know
+                return {
+                    "summary": f"Analyzed {len(state.crawled_pages)} pages. Found forms and links for security testing.",
+                    "technologies": ["web"],  # Generic fallback
+                    "endpoints": [page.url for page in state.crawled_pages[:5]],  # First few URLs
+                    "security_notes": ["Multiple pages available for testing"],
+                    "attack_surface": ["forms", "endpoints", "file_uploads"]
+                }
             
         except Exception as e:
             logger.error(f"Failed to analyze crawled content: {e}")

@@ -320,7 +320,20 @@ Focus on concrete, actionable items.""")
                 content = str(response)
             
             import json
-            return json.loads(content)
+            try:
+                # Clean the content - sometimes LLMs add markdown formatting
+                clean_content = content.strip()
+                if clean_content.startswith('```json'):
+                    clean_content = clean_content.split('\n', 1)[1]
+                if clean_content.endswith('```'):
+                    clean_content = clean_content.rsplit('\n', 1)[0]
+                
+                return json.loads(clean_content)
+                
+            except (json.JSONDecodeError, ValueError) as e:
+                logger.warning(f"Failed to parse JSON response: {e}")
+                logger.warning(f"Response content: {content[:200]}...")
+                return {"technologies": [], "endpoints": []}
             
         except Exception as e:
             logger.error(f"Technology extraction failed: {e}")
