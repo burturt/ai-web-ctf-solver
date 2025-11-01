@@ -1,0 +1,387 @@
+{% extends "base.html" %}
+
+{% block title %}Challenge: {{ challenge.title or challenge.url }} - AI CTF Solver{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Challenge Info -->
+    <div class="col-12 mb-4">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <div>
+                    <h4 class="mb-0">
+                        <i class="fas fa-flag me-2"></i>
+                        {{ challenge.title or "CTF Challenge" }}
+                    </h4>
+                    <small>{{ challenge.url }}</small>
+                </div>
+                <div>
+                    <span class="badge bg-light text-dark fs-6" id="status-badge">{{ status }}</span>
+                </div>
+            </div>
+            <div class="card-body">
+                {% if challenge.description %}
+                <p class="mb-2"><strong>Description:</strong> {{ challenge.description }}</p>
+                {% endif %}
+                {% if challenge.flag_format %}
+                <p class="mb-2"><strong>Flag Format:</strong> <code>{{ challenge.flag_format }}</code></p>
+                {% endif %}
+                {% if challenge.hint %}
+                <p class="mb-0"><strong>Hint:</strong> {{ challenge.hint }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress and Status -->
+    <div class="col-lg-8">
+        <!-- Overall Progress -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Solving Progress</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>Overall Progress</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <!-- Agent Status -->
+                <div class="row" id="agent-status">
+                    <div class="col-md-3 mb-2">
+                        <div class="agent-card" data-agent="crawler">
+                            <i class="fas fa-search text-primary"></i>
+                            <small class="d-block">Web Crawler</small>
+                            <span class="badge bg-secondary status-badge">waiting</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="agent-card" data-agent="summarizer">
+                            <i class="fas fa-brain text-success"></i>
+                            <small class="d-block">Analyzer</small>
+                            <span class="badge bg-secondary status-badge">waiting</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="agent-card" data-agent="threat_model">
+                            <i class="fas fa-shield-alt text-warning"></i>
+                            <small class="d-block">Threat Model</small>
+                            <span class="badge bg-secondary status-badge">waiting</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <div class="agent-card" data-agent="fuzzer">
+                            <i class="fas fa-bolt text-danger"></i>
+                            <small class="d-block">Fuzzer</small>
+                            <span class="badge bg-secondary status-badge">waiting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Logs -->
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0"><i class="fas fa-terminal me-2"></i>Live Agent Logs</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="log-output p-3" id="live-logs" style="height: 400px; overflow-y: auto;">
+                    <div class="text-success">AI CTF Solver initialized...</div>
+                    <div class="text-info">Waiting for challenge to start...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div class="col-lg-4">
+        <!-- Flags Found -->
+        <div class="card shadow mb-4" id="flags-card" style="display: none;">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-trophy me-2"></i>Flags Found</h5>
+            </div>
+            <div class="card-body" id="flags-list">
+                <!-- Flags will be populated here -->
+            </div>
+        </div>
+
+        <!-- Vulnerabilities -->
+        <div class="card shadow mb-4">
+            <div class="card-header bg-warning text-white">
+                <h5 class="mb-0"><i class="fas fa-bug me-2"></i>Vulnerabilities</h5>
+            </div>
+            <div class="card-body" id="vulnerabilities-list">
+                <p class="text-muted mb-0">Scanning for vulnerabilities...</p>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="card shadow">
+            <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Statistics</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6 mb-3">
+                        <h4 class="text-primary mb-0" id="pages-crawled">0</h4>
+                        <small class="text-muted">Pages Crawled</small>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h4 class="text-warning mb-0" id="vulnerabilities-found">0</h4>
+                        <small class="text-muted">Vulnerabilities</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-info mb-0" id="exploit-attempts">0</h4>
+                        <small class="text-muted">Exploits Tried</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-success mb-0" id="successful-exploits">0</h4>
+                        <small class="text-muted">Successful</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="card shadow mt-4">
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-warning" onclick="stopChallenge()">
+                        <i class="fas fa-stop me-1"></i>Stop Challenge
+                    </button>
+                    <button class="btn btn-outline-danger" onclick="deleteChallenge()">
+                        <i class="fas fa-trash me-1"></i>Delete Challenge
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<style>
+.agent-card {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #f8f9fa;
+}
+
+.agent-card i {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.agent-card.active {
+    border-color: #007bff;
+    background: #e3f2fd;
+}
+
+.agent-card.completed {
+    border-color: #28a745;
+    background: #d4edda;
+}
+</style>
+
+<script>
+const challengeId = '{{ challenge_id }}';
+let updateInterval;
+
+// Start auto-refresh on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateChallengeStatus();
+    updateInterval = setInterval(updateChallengeStatus, 3000); // Update every 3 seconds
+});
+
+async function updateChallengeStatus() {
+    try {
+        const response = await fetch(`/api/challenges/${challengeId}/status`);
+        const status = await response.json();
+        
+        // Update progress bar
+        const progress = Math.round(status.progress * 100);
+        document.getElementById('progress-percent').textContent = progress + '%';
+        document.getElementById('progress-bar').style.width = progress + '%';
+        
+        // Update status badge
+        const statusBadge = document.getElementById('status-badge');
+        statusBadge.textContent = status.status;
+        statusBadge.className = `badge fs-6 ${getStatusBadgeClass(status.status)}`;
+        
+        // Update agent status
+        updateAgentStatus(status.current_agent);
+        
+        // Update logs
+        if (status.messages && status.messages.length > 0) {
+            updateLogs(status.messages);
+        }
+        
+        // Update flags if found
+        if (status.flags_found && status.flags_found.length > 0) {
+            updateFlags(status.flags_found);
+        }
+        
+        // Get detailed information
+        const detailResponse = await fetch(`/api/challenges/${challengeId}/details`);
+        const details = await detailResponse.json();
+        
+        updateStatistics(details);
+        updateVulnerabilities(details.vulnerabilities);
+        
+        // Stop updating if completed or failed
+        if (status.status === 'completed' || status.status === 'failed') {
+            clearInterval(updateInterval);
+        }
+        
+    } catch (error) {
+        console.error('Failed to update challenge status:', error);
+    }
+}
+
+function getStatusBadgeClass(status) {
+    switch (status) {
+        case 'completed': return 'bg-success text-white';
+        case 'failed': return 'bg-danger text-white';
+        case 'crawling': return 'bg-primary text-white';
+        case 'analyzing': return 'bg-info text-white';
+        case 'modeling_threats': return 'bg-warning text-dark';
+        case 'fuzzing': return 'bg-danger text-white';
+        default: return 'bg-secondary text-white';
+    }
+}
+
+function updateAgentStatus(currentAgent) {
+    // Reset all agents
+    document.querySelectorAll('.agent-card').forEach(card => {
+        card.classList.remove('active', 'completed');
+        card.querySelector('.status-badge').className = 'badge bg-secondary status-badge';
+        card.querySelector('.status-badge').textContent = 'waiting';
+    });
+    
+    // Mark active agent
+    if (currentAgent) {
+        const activeCard = document.querySelector(`[data-agent="${currentAgent}"]`);
+        if (activeCard) {
+            activeCard.classList.add('active');
+            activeCard.querySelector('.status-badge').className = 'badge bg-primary status-badge';
+            activeCard.querySelector('.status-badge').textContent = 'active';
+        }
+    }
+}
+
+function updateLogs(messages) {
+    const logsContainer = document.getElementById('live-logs');
+    
+    messages.forEach(message => {
+        const logEntry = document.createElement('div');
+        logEntry.className = 'text-success';
+        logEntry.textContent = message;
+        logsContainer.appendChild(logEntry);
+    });
+    
+    // Auto-scroll to bottom
+    logsContainer.scrollTop = logsContainer.scrollHeight;
+    
+    // Limit log entries
+    while (logsContainer.children.length > 100) {
+        logsContainer.removeChild(logsContainer.firstChild);
+    }
+}
+
+function updateFlags(flags) {
+    const flagsCard = document.getElementById('flags-card');
+    const flagsList = document.getElementById('flags-list');
+    
+    flagsCard.style.display = 'block';
+    
+    flagsList.innerHTML = flags.map(flag => `
+        <div class="alert alert-success mb-2">
+            <i class="fas fa-flag me-2"></i>
+            <code>${flag}</code>
+        </div>
+    `).join('');
+}
+
+function updateStatistics(details) {
+    document.getElementById('pages-crawled').textContent = details.crawled_pages || 0;
+    document.getElementById('vulnerabilities-found').textContent = details.vulnerabilities ? details.vulnerabilities.length : 0;
+    document.getElementById('exploit-attempts').textContent = details.exploit_attempts || 0;
+    document.getElementById('successful-exploits').textContent = details.successful_exploits || 0;
+}
+
+function updateVulnerabilities(vulnerabilities) {
+    const vulnList = document.getElementById('vulnerabilities-list');
+    
+    if (!vulnerabilities || vulnerabilities.length === 0) {
+        vulnList.innerHTML = '<p class="text-muted mb-0">No vulnerabilities identified yet</p>';
+        return;
+    }
+    
+    vulnList.innerHTML = vulnerabilities.map(vuln => `
+        <div class="mb-2">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <strong class="text-capitalize">${vuln.type.replace('_', ' ')}</strong><br>
+                    <small class="text-muted">${vuln.location}</small>
+                </div>
+                <span class="badge bg-${getConfidenceBadge(vuln.confidence)}">${Math.round(vuln.confidence * 100)}%</span>
+            </div>
+            <small class="text-muted">${vuln.description}</small>
+        </div>
+        <hr class="my-2">
+    `).join('');
+}
+
+function getConfidenceBadge(confidence) {
+    if (confidence >= 0.8) return 'danger';
+    if (confidence >= 0.6) return 'warning';
+    return 'secondary';
+}
+
+async function stopChallenge() {
+    if (!confirm('Are you sure you want to stop this challenge?')) return;
+    
+    try {
+        const response = await fetch(`/api/challenges/${challengeId}/stop`, {
+            method: 'POST'
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+            showToast('Challenge stopped', 'warning');
+            clearInterval(updateInterval);
+        }
+    } catch (error) {
+        showToast('Failed to stop challenge', 'danger');
+    }
+}
+
+async function deleteChallenge() {
+    if (!confirm('Are you sure you want to delete this challenge? This action cannot be undone.')) return;
+    
+    try {
+        const response = await fetch(`/api/challenges/${challengeId}`, {
+            method: 'DELETE'
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+            showToast('Challenge deleted', 'success');
+            setTimeout(() => {
+                window.location.href = '/dashboard';
+            }, 1500);
+        }
+    } catch (error) {
+        showToast('Failed to delete challenge', 'danger');
+    }
+}
+</script>
+{% endblock %}

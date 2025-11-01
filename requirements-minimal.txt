@@ -1,0 +1,31 @@
+# Minimal requirements for AI Web CTF Solver
+# Install these core dependencies first
+
+# Build essentials
+setuptools>=65.0.0
+wheel>=0.38.0
+
+# Core LangChain/LangGraph (latest compatible versions)
+langchain>=0.1.0,<0.3.0
+langchain-core>=0.1.0,<0.3.0
+langchain-openai>=0.0.8
+langgraph>=0.1.0
+
+# Web framework
+fastapi>=0.100.0
+uvicorn>=0.20.0
+jinja2>=3.0.0
+python-multipart>=0.0.5
+
+# HTTP and web scraping
+requests>=2.30.0
+beautifulsoup4>=4.11.0
+httpx>=0.24.0
+
+# Configuration and utilities  
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+loguru>=0.7.0
+
+# Optional: Web automation (can be installed separately if needed)
+# selenium>=4.10.0

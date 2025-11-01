@@ -1,0 +1,174 @@
+/* AI Web CTF Solver - Custom Styles */
+
+/* Agent status indicators */
+.agent-active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.agent-inactive {
+    color: #6c757d;
+}
+
+.agent-error {
+    color: #dc3545;
+}
+
+/* Progress bars */
+.progress-wrapper {
+    margin: 1rem 0;
+}
+
+.progress-label {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Live logs */
+.log-container {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.log-entry {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+.log-timestamp {
+    color: #6c757d;
+    font-size: 0.8rem;
+}
+
+.log-agent {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.log-message {
+    margin-left: 1rem;
+}
+
+/* Challenge cards */
+.challenge-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.challenge-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Status badges */
+.status-running {
+    background-color: #28a745;
+}
+
+.status-completed {
+    background-color: #007bff;
+}
+
+.status-failed {
+    background-color: #dc3545;
+}
+
+.status-stopped {
+    background-color: #6c757d;
+}
+
+/* Vulnerability list */
+.vulnerability-item {
+    border-left: 4px solid #ffc107;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.vulnerability-critical {
+    border-left-color: #dc3545;
+}
+
+.vulnerability-high {
+    border-left-color: #fd7e14;
+}
+
+.vulnerability-medium {
+    border-left-color: #ffc107;
+}
+
+.vulnerability-low {
+    border-left-color: #28a745;
+}
+
+/* Flag display */
+.flag-found {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.flag-text {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #155724;
+}
+
+/* Form improvements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-help {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .log-container {
+        max-height: 300px;
+        font-size: 0.8rem;
+    }
+    
+    .challenge-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .log-container {
+        background-color: #2d2d2d;
+        border-color: #444;
+        color: #f8f9fa;
+    }
+    
+    .log-timestamp {
+        color: #adb5bd;
+    }
+}
