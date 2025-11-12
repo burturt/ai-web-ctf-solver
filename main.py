@@ -13,8 +13,10 @@ import json
 import logging
 from datetime import datetime
 from functools import wraps
+import tiktoken
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import trim_messages
 from langchain_openai import AzureChatOpenAI
 from langgraph.graph import StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode
@@ -132,6 +134,32 @@ class BrowserManager:
 
 # Global browser manager instance
 browser_manager = BrowserManager()
+
+def custom_token_counter(messages):
+    """Custom token counter that uses GPT-4 encoding for Azure OpenAI compatibility."""
+    try:
+        # Use GPT-4 encoding as a fallback for Azure OpenAI
+        encoding = tiktoken.encoding_for_model("gpt-4")
+        total_tokens = 0
+        
+        for message in messages:
+            if hasattr(message, 'content') and message.content:
+                total_tokens += len(encoding.encode(str(message.content)))
+            elif isinstance(message, str):
+                total_tokens += len(encoding.encode(message))
+                
+        logger.debug(f"🔢 Token count: {total_tokens}")
+        return total_tokens
+    except Exception as e:
+        logger.warning(f"⚠️ Token counting failed: {e}, using character-based estimate")
+        # Fallback to character-based estimation (roughly 4 chars per token)
+        total_chars = 0
+        for message in messages:
+            if hasattr(message, 'content') and message.content:
+                total_chars += len(str(message.content))
+            elif isinstance(message, str):
+                total_chars += len(message)
+        return total_chars // 4
 
 @tool
 @timing_decorator
@@ -686,7 +714,138 @@ prompt = ChatPromptTemplate.from_messages([
 def agent_node(state: MessagesState):
     """Main agent node that processes input and decides on actions."""
     messages = state["messages"]
-    response = llm_with_tools.invoke(messages)
+    
+    # Truncate message history while preserving complete tool call/response chains
+    logger.debug(f"📊 Processing {len(messages)} messages before trimming")
+    
+    # Separate system messages from others
+    system_messages = []
+    other_messages = []
+    
+    for msg in messages:
+        if hasattr(msg, 'type') and msg.type == 'system':
+            system_messages.append(msg)
+        else:
+            other_messages.append(msg)
+    
+    # Token-based trimming to keep under 2k tokens while preserving message integrity
+    TOKEN_LIMIT = 5000
+
+    # Start with system messages (always keep these)
+    final_messages = system_messages.copy()
+    system_tokens = custom_token_counter(system_messages)
+
+    if system_tokens >= TOKEN_LIMIT:
+        # System messages alone exceed limit - just keep them
+        logger.warning(f"⚠️ System messages ({system_tokens} tokens) exceed limit")
+    else:
+        # Work backwards from most recent messages to build trimmed list
+        remaining_tokens = TOKEN_LIMIT - system_tokens
+        trimmed_messages = []
+
+        # Process messages in reverse order
+        i = len(other_messages) - 1
+        while i >= 0 and remaining_tokens > 0:
+            msg = other_messages[i]
+
+            # Check if this is a tool message - if so, find its preceding assistant message
+            if hasattr(msg, 'type') and msg.type == 'tool':
+                # Find the assistant message with the tool_call that matches this tool response
+                tool_call_id = getattr(msg, 'tool_call_id', None)
+
+                # Collect all tool messages at the current position (there may be multiple)
+                tool_messages = [msg]
+                tool_call_ids = {tool_call_id} if tool_call_id else set()
+                j = i - 1
+
+                # Gather any other tool messages that are adjacent
+                while j >= 0:
+                    prev_msg = other_messages[j]
+                    if hasattr(prev_msg, 'type') and prev_msg.type == 'tool':
+                        tool_messages.insert(0, prev_msg)
+                        if hasattr(prev_msg, 'tool_call_id'):
+                            tool_call_ids.add(prev_msg.tool_call_id)
+                        j -= 1
+                    else:
+                        break
+
+                # Now find the assistant message with tool_calls
+                assistant_msg = None
+                if j >= 0:
+                    candidate = other_messages[j]
+                    if hasattr(candidate, 'tool_calls') and candidate.tool_calls:
+                        assistant_msg = candidate
+
+                if assistant_msg:
+                    # Calculate tokens for the complete chain
+                    chain = [assistant_msg] + tool_messages
+                    chain_tokens = custom_token_counter(chain)
+
+                    if chain_tokens <= remaining_tokens:
+                        # Add the complete chain
+                        trimmed_messages = chain + trimmed_messages
+                        remaining_tokens -= chain_tokens
+                        i = j - 1  # Move past the assistant message
+                    else:
+                        # Can't fit this chain - stop trimming
+                        break
+                else:
+                    # Orphaned tool message - skip it
+                    logger.warning(f"⚠️ Skipping orphaned tool message at position {i}")
+                    i -= 1
+
+            # Check if this is an assistant message with tool_calls
+            elif hasattr(msg, 'tool_calls') and msg.tool_calls:
+                # Collect all following tool responses
+                tool_call_ids = {tc.id for tc in msg.tool_calls if hasattr(tc, 'id')}
+                chain = [msg]
+                j = i + 1
+
+                # Gather tool responses
+                while j < len(other_messages) and tool_call_ids:
+                    next_msg = other_messages[j]
+                    if hasattr(next_msg, 'type') and next_msg.type == 'tool':
+                        chain.append(next_msg)
+                        if hasattr(next_msg, 'tool_call_id'):
+                            tool_call_ids.discard(next_msg.tool_call_id)
+                        j += 1
+                    else:
+                        break
+
+                # Calculate tokens for complete chain
+                chain_tokens = custom_token_counter(chain)
+
+                if chain_tokens <= remaining_tokens:
+                    # Only add if we haven't already added these messages
+                    if not trimmed_messages or trimmed_messages[0] != chain[-1]:
+                        trimmed_messages = chain + trimmed_messages
+                        remaining_tokens -= chain_tokens
+                    i -= 1
+                else:
+                    # Can't fit this chain - stop trimming
+                    break
+
+            # Regular message (human or assistant without tool_calls)
+            else:
+                msg_tokens = custom_token_counter([msg])
+                if msg_tokens <= remaining_tokens:
+                    trimmed_messages.insert(0, msg)
+                    remaining_tokens -= msg_tokens
+                    i -= 1
+                else:
+                    # Can't fit this message - stop trimming
+                    break
+
+        final_messages.extend(trimmed_messages)
+
+        if len(trimmed_messages) < len(other_messages):
+            logger.debug(f"✂️ Trimmed from {len(other_messages)} to {len(trimmed_messages)} messages to stay under {TOKEN_LIMIT} tokens")
+
+    # Count tokens in final messages
+    token_count = custom_token_counter(final_messages)
+    logger.debug(f"📊 Final: {len(final_messages)} messages, ~{token_count} tokens")
+    
+    response = llm_with_tools.invoke(final_messages)
     return {"messages": [response]}
 
 def should_continue(state: MessagesState):
