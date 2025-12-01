@@ -268,6 +268,9 @@ prompt = ChatPromptTemplate.from_messages([
     - fetch_contents: Fetch raw contents of a URL using HTTP requests (useful for APIs, raw HTML, headers)
     - get_console_logs: Get JavaScript console logs and error messages
     
+    Available file system tools:
+    - read_local_file: Read the content of a local file (e.g., uploaded source code).
+    
     You also have access to the following specialized security tools:
 
     - `run_ffuf(target_url: str, wordlist: str, options: str = "")`:
@@ -298,7 +301,19 @@ prompt = ChatPromptTemplate.from_messages([
        - Flags that only appear after specific actions
     
     Keep exploring until you solve the challenge completely. Say "CHALLENGE SOLVED" when you find the flag."""),
-    ("human", "CTF Challenge: {input_data}")
+    ("human", """CTF Challenge Information:
+Target URL: {url}
+
+Additional Information provided by user:
+{additional_info}
+
+Attached Files (available in the 'files/' directory):
+{file_list}
+
+IMPORTANT: If there are attached files, your FIRST action should be to read their contents using `read_local_file`. 
+Analyze the source code or file content CAREFULLY for clues, hidden flags, or vulnerability patterns (like hardcoded credentials, API endpoints, logic flaws).
+
+Please start by analyzing the Target URL and any attached files.""")
 ])
 
 def agent_node(state: MessagesState):
@@ -431,12 +446,17 @@ memory = MemorySaver()
 app = workflow.compile(checkpointer=memory)
 
 @timing_decorator
-def run_ctf_solver(input_data: str):
+def run_ctf_solver(url: str, additional_info: str = "", file_list: list = []):
     """Run the CTF solver with the given input data."""
-    logger.info(f"🚀 Starting CTF solver for: {input_data}")
+    input_desc = f"URL: {url}, Info: {additional_info[:50]}..., Files: {len(file_list)}"
+    logger.info(f"🚀 Starting CTF solver for: {input_desc}")
     
     start_format = time.time()
-    messages = prompt.format_messages(input_data=input_data)
+    messages = prompt.format_messages(
+        url=url,
+        additional_info=additional_info,
+        file_list=str(file_list)
+    )
     logger.debug(f"⏱️ Message formatting took {time.time() - start_format:.3f}s")
     
     config = {
@@ -483,14 +503,14 @@ def run_ctf_solver(input_data: str):
 
 if __name__ == "__main__":
     # Example usage
-    sample_input = "https://i-spy.acmcyber.com/"
+    sample_url = "https://i-spy.acmcyber.com/"
     
     logger.info("🚩 CTF Solver Starting...")
-    logger.info(f"🎯 Target: {sample_input}")
+    logger.info(f"🎯 Target: {sample_url}")
     logger.info("Let the AI solve this challenge...")
     
     try:
-        result = run_ctf_solver(sample_input)
+        result = run_ctf_solver(url=sample_url, additional_info="Example run from command line.")
         logger.info(f"🏁 Final Result: {result}")
     except Exception as e:
         logger.error(f"❌ CTF Solver failed with error: {e}")
