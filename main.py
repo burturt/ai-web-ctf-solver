@@ -257,7 +257,7 @@ prompt = ChatPromptTemplate.from_messages([
        - Authentication bypasses
     4. Use browser tools to interact with the page as needed in order to solve the challenge. Follow instructions on the HTML page if provided.
     5. Continue investigating until you find the flag (usually in format: flag{{...}} or similar)
-    
+
     Available browser tools:
     - navigate_to_url: Navigate to any URL
     - find_elements: Find page elements using CSS selectors or XPath
@@ -267,24 +267,57 @@ prompt = ChatPromptTemplate.from_messages([
     - get_page_info: Get comprehensive page information
     - fetch_contents: Fetch raw contents of a URL using HTTP requests (useful for APIs, raw HTML, headers)
     - get_console_logs: Get JavaScript console logs and error messages
-    
+
     Available file system tools:
     - read_local_file: Read the content of a local file (e.g., uploaded source code).
-    
+
     You also have access to the following specialized security tools:
+
+    🔴 **PRIORITY TOOL - USE SQLMAP FIRST FOR SQL INJECTION AND DATABASE DUMPING:**
+
+    - `run_sqlmap(target_url: str, options: str = "--batch --level=1 --risk=1")`:
+      ⚠️ **ALWAYS USE THIS TOOL FIRST** when you suspect SQL injection or need to dump a database.
+      ⚠️ **DO NOT MANUALLY FUZZ** parameters when sqlmap can automate the entire process.
+      ⚠️ **SQLMAP IS YOUR PRIMARY TOOL** for any database-related exploitation.
+
+      This tool automatically:
+      - Detects SQL injection vulnerabilities
+      - Identifies the database type
+      - Dumps entire databases with `--dump`
+      - Extracts tables, columns, and data
+      - Handles authentication with your browser cookies
+
+      The `target_url` must be the full, specific URL you want to test (e.g., 'https://example.com/items.php?id=123').
+
+      **WHEN TO USE SQLMAP (HIGH PRIORITY):**
+      - ANY time you see URLs with parameters like `?id=`, `?user=`, `?search=`, etc.
+      - When you suspect a database is involved in the challenge
+      - When you need to extract data from a database
+      - BEFORE attempting manual SQL injection payloads
+      - When the challenge hints at database interaction
+      
+
+      **RECOMMENDED OPTIONS FOR DATABASE DUMPING:**
+      - `--dump` : Dump all data from tables. ONLY USE THIS WITH A SPECIFIED DATABASE AND TABLE
+      - `--dump-all` : Dump entire database. ONLY USE THIS AS LAST RESORT.
+      - `--dbs` : Enumerate databases. USE THIS FIRST
+      - `--tables` : Enumerate tables. USE THIS AFTER `--dbs`
+      - `--columns` : Enumerate columns
+    -D DB               DBMS database to enumerate
+    -T TBL              DBMS database table(s) to enumerate
+    -C COL              DBMS database table column(s) to enumerate
+      - `--level=5 --risk=3` : Maximum thoroughness (use if level 1 fails)
+      - `--technique=BEUSTQ` : Try all SQL injection techniques
+
+      Example: `run_sqlmap(target_url='https://example.com/search?q=test', options='--batch --dump --level=5 --risk=3')`
 
     - `run_ffuf(target_url: str, wordlist: str, options: str = "")`:
       Use this tool for stateful content discovery (finding hidden files or directories).
+      ⚠️ **DO NOT use this for SQL injection testing** - use sqlmap instead.
       It automatically uses your current browser session cookies.
       You MUST provide a `target_url` with 'FUZZ' at the fuzzing location (e.g., 'https://example.com/FUZZ').
       You MUST provide a valid `wordlist` path (e.g., '/usr/share/wordlists/dirb/common.txt').
       Example: After logging in, you could scan for admin panels with `run_ffuf(target_url='https://current-site.com/FUZZ', wordlist='path/to/wordlist.txt')`.
-
-    - `run_sqlmap(target_url: str, options: str = "--batch --level=1 --risk=1")`:
-      Use this tool to test for SQL injection vulnerabilities on a URL with parameters.
-      It automatically uses your browser session cookies.
-      The `target_url` must be the full, specific URL you want to test (e.g., 'https://example.com/items.php?id=123').
-      Only use this when you have identified a specific URL with parameters that looks suspicious.
 
     Always analyze the output of these tools to guide your next steps. If a tool returns an error, do not try it again immediately. Analyze the error and try to solve the problem (e.g., by providing a correct wordlist path).
     
@@ -461,7 +494,7 @@ def run_ctf_solver(url: str, additional_info: str = "", file_list: list = []):
     
     config = {
         "configurable": {"thread_id": "1"},
-        "recursion_limit": 999999  # Set to effectively infinite
+        "recursion_limit": 999999 
     }
     
     logger.info("🤖 AI Agent is working on the challenge...")

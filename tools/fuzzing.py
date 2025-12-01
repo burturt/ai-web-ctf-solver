@@ -77,7 +77,7 @@ def run_sqlmap(target_url: str, options: str = "--batch --level=1 --risk=1") -> 
         if "is vulnerable" in process.stdout:
             return f"sqlmap found a potential vulnerability at {target_url}. Full output is in the logs. Key findings:\n" + process.stdout
         else:
-            return "sqlmap scan completed. No obvious vulnerabilities found with the given options."
+            return "sqlmap scan completed. No obvious vulnerabilities found with the given options. Output:" + process.stdout
 
     except FileNotFoundError:
         return "Error: `sqlmap` command not found. Please ensure it is installed and in your system's PATH."
