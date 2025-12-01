@@ -11119,3 +11119,1835 @@ Please retry in 48.05550248s. [links {
 2025-11-30 16:56:32,883 - __main__ - INFO - 🔒 Browser closed successfully
 2025-11-30 16:56:32,883 - __main__ - ERROR - ❌ run_ctf_solver failed after 179.206s: 'list' object has no attribute 'upper'
 2025-11-30 16:56:32,883 - __main__ - ERROR - ❌ CTF Solver failed with error: 'list' object has no attribute 'upper'
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: click_element from tools.web_navigation
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: execute_javascript from tools.web_navigation
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: fetch_contents from tools.web_navigation
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: fill_form_field from tools.web_navigation
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: find_elements from tools.web_navigation
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: get_console_logs from tools.web_navigation
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: get_page_info from tools.web_navigation
+2025-11-30 17:16:20,670 - __main__ - INFO - Loaded tool: navigate_to_url from tools.web_navigation
+2025-11-30 17:16:20,672 - __main__ - INFO - Loaded tool: run_ffuf from tools.fuzzing
+2025-11-30 17:16:20,673 - __main__ - INFO - Loaded tool: run_sqlmap from tools.fuzzing
+2025-11-30 17:16:20,673 - __main__ - INFO - 🔧 Loaded 10 tools
+2025-11-30 17:16:20,689 - __main__ - INFO - 🚩 CTF Solver Starting...
+2025-11-30 17:16:20,689 - __main__ - INFO - 🎯 Target: https://i-spy.acmcyber.com/
+2025-11-30 17:16:20,689 - __main__ - INFO - Let the AI solve this challenge...
+2025-11-30 17:16:20,689 - core.utils - INFO - 🚀 Starting run_ctf_solver
+2025-11-30 17:16:20,689 - __main__ - INFO - 🚀 Starting CTF solver for: https://i-spy.acmcyber.com/
+2025-11-30 17:16:20,689 - __main__ - DEBUG - ⏱️ Message formatting took 0.000s
+2025-11-30 17:16:20,689 - __main__ - INFO - 🤖 AI Agent is working on the challenge...
+2025-11-30 17:16:20,689 - __main__ - INFO - ==================================================
+2025-11-30 17:16:20,691 - __main__ - DEBUG - 📊 Processing 2 messages before trimming
+2025-11-30 17:16:20,783 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:20,833 - __main__ - DEBUG - 🔢 Token count: 18
+2025-11-30 17:16:20,833 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:20,833 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:20,833 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:20,935 - __main__ - DEBUG - 🔢 Token count: 855
+2025-11-30 17:16:20,935 - __main__ - DEBUG - 📊 Final: 2 messages, ~855 tokens
+2025-11-30 17:16:20,935 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:21,899 - core.utils - INFO - 🚀 Starting navigate_to_url
+2025-11-30 17:16:21,899 - tools.web_navigation - INFO - 🌐 Navigating to https://i-spy.acmcyber.com/
+2025-11-30 17:16:21,899 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:21,899 - core.browser - INFO - 🔧 Initializing Chrome WebDriver...
+2025-11-30 17:16:23,609 - core.browser - INFO - ✅ Chrome WebDriver initialized successfully
+2025-11-30 17:16:23,610 - core.utils - INFO - ✅ get_driver completed in 1.710s
+2025-11-30 17:16:25,849 - tools.web_navigation - INFO - 📄 Page loaded: 'I Spy' (1711 chars)
+2025-11-30 17:16:25,849 - core.utils - INFO - ✅ navigate_to_url completed in 3.951s
+2025-11-30 17:16:25,851 - __main__ - DEBUG - 📊 Processing 4 messages before trimming
+2025-11-30 17:16:25,904 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:26,059 - __main__ - DEBUG - 🔢 Token count: 674
+2025-11-30 17:16:26,060 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:26,060 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:26,060 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:26,060 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:26,060 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:26,256 - __main__ - DEBUG - 🔢 Token count: 1511
+2025-11-30 17:16:26,256 - __main__ - DEBUG - 📊 Final: 4 messages, ~1511 tokens
+2025-11-30 17:16:26,256 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:28,701 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:16:28,701 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: B218B51749AB9E4C669E5BA3122C8AE3
+2025-11-30 17:16:28,701 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:28,701 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:28,851 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:16:28,851 - core.utils - INFO - ✅ fill_form_field completed in 0.151s
+2025-11-30 17:16:28,852 - __main__ - DEBUG - 📊 Processing 6 messages before trimming
+2025-11-30 17:16:28,896 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:29,116 - __main__ - DEBUG - 🔢 Token count: 779
+2025-11-30 17:16:29,116 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:29,117 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:29,117 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:29,117 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:29,117 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:29,117 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:29,117 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:29,502 - __main__ - DEBUG - 🔢 Token count: 1616
+2025-11-30 17:16:29,502 - __main__ - DEBUG - 📊 Final: 6 messages, ~1616 tokens
+2025-11-30 17:16:29,502 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:30,455 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:16:30,455 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:16:30,455 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:30,455 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:31,531 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:16:31,531 - core.utils - INFO - ✅ click_element completed in 1.076s
+2025-11-30 17:16:31,532 - __main__ - DEBUG - 📊 Processing 8 messages before trimming
+2025-11-30 17:16:31,582 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:32,345 - __main__ - DEBUG - 🔢 Token count: 829
+2025-11-30 17:16:32,346 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:32,346 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:33,164 - __main__ - DEBUG - 🔢 Token count: 1666
+2025-11-30 17:16:33,165 - __main__ - DEBUG - 📊 Final: 8 messages, ~1666 tokens
+2025-11-30 17:16:33,165 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:33,994 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:16:33,994 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:16:33,994 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:33,994 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:34,010 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1778 chars HTML)
+2025-11-30 17:16:34,010 - core.utils - INFO - ✅ get_page_info completed in 0.016s
+2025-11-30 17:16:34,011 - __main__ - DEBUG - 📊 Processing 10 messages before trimming
+2025-11-30 17:16:34,064 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:34,934 - __main__ - DEBUG - 🔢 Token count: 1616
+2025-11-30 17:16:34,935 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:16:34,935 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:16:35,492 - __main__ - DEBUG - 🔢 Token count: 2453
+2025-11-30 17:16:35,492 - __main__ - DEBUG - 📊 Final: 10 messages, ~2453 tokens
+2025-11-30 17:16:35,492 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:36,911 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:16:36,911 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: 66E7AEBA46293C88DA84CDAB0E579268
+2025-11-30 17:16:36,911 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:36,911 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:36,970 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:16:36,970 - core.utils - INFO - ✅ fill_form_field completed in 0.059s
+2025-11-30 17:16:36,970 - __main__ - DEBUG - 📊 Processing 12 messages before trimming
+2025-11-30 17:16:37,017 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:37,499 - __main__ - DEBUG - 🔢 Token count: 1718
+2025-11-30 17:16:37,499 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:37,499 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:37,499 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:16:37,500 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:16:38,018 - __main__ - DEBUG - 🔢 Token count: 2555
+2025-11-30 17:16:38,019 - __main__ - DEBUG - 📊 Final: 12 messages, ~2555 tokens
+2025-11-30 17:16:38,019 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:39,846 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:16:39,847 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:16:39,847 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:39,847 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:41,012 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:16:41,012 - core.utils - INFO - ✅ click_element completed in 1.166s
+2025-11-30 17:16:41,013 - __main__ - DEBUG - 📊 Processing 14 messages before trimming
+2025-11-30 17:16:41,067 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:41,631 - __main__ - DEBUG - 🔢 Token count: 1768
+2025-11-30 17:16:41,632 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:41,632 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:41,632 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:41,632 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:41,632 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:41,632 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:16:41,633 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:16:41,636 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:16:42,229 - __main__ - DEBUG - 🔢 Token count: 2605
+2025-11-30 17:16:42,229 - __main__ - DEBUG - 📊 Final: 14 messages, ~2605 tokens
+2025-11-30 17:16:42,230 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:43,180 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:16:43,180 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:16:43,180 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:43,181 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:43,195 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1781 chars HTML)
+2025-11-30 17:16:43,196 - core.utils - INFO - ✅ get_page_info completed in 0.015s
+2025-11-30 17:16:43,196 - __main__ - DEBUG - 📊 Processing 16 messages before trimming
+2025-11-30 17:16:43,242 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:44,022 - __main__ - DEBUG - 🔢 Token count: 2555
+2025-11-30 17:16:44,023 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:16:44,023 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:16:44,708 - __main__ - DEBUG - 🔢 Token count: 3392
+2025-11-30 17:16:44,708 - __main__ - DEBUG - 📊 Final: 16 messages, ~3392 tokens
+2025-11-30 17:16:44,708 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:45,801 - core.utils - INFO - 🚀 Starting get_console_logs
+2025-11-30 17:16:45,801 - tools.web_navigation - INFO - 📝 Getting JavaScript console logs
+2025-11-30 17:16:45,801 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:45,801 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:45,803 - tools.web_navigation - INFO - 📝 Found 1 console log entries
+2025-11-30 17:16:45,803 - core.utils - INFO - ✅ get_console_logs completed in 0.002s
+2025-11-30 17:16:45,804 - __main__ - DEBUG - 📊 Processing 18 messages before trimming
+2025-11-30 17:16:45,853 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:46,583 - __main__ - DEBUG - 🔢 Token count: 2663
+2025-11-30 17:16:46,583 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:46,583 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:16:46,584 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:16:46,585 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:16:46,585 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:16:46,585 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:16:46,585 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:16:46,585 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:16:46,585 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:16:47,359 - __main__ - DEBUG - 🔢 Token count: 3500
+2025-11-30 17:16:47,359 - __main__ - DEBUG - 📊 Final: 18 messages, ~3500 tokens
+2025-11-30 17:16:47,359 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:48,674 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:16:48,675 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: 5D1F98BCEE5158AF6A7505C4DAEF8AD6
+2025-11-30 17:16:48,675 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:48,675 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:48,738 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:16:48,738 - core.utils - INFO - ✅ fill_form_field completed in 0.063s
+2025-11-30 17:16:48,738 - __main__ - DEBUG - 📊 Processing 20 messages before trimming
+2025-11-30 17:16:48,783 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:49,592 - __main__ - DEBUG - 🔢 Token count: 2765
+2025-11-30 17:16:49,593 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:16:49,593 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:16:49,594 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:16:49,594 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:16:49,594 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:16:49,594 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:16:49,594 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:16:50,457 - __main__ - DEBUG - 🔢 Token count: 3602
+2025-11-30 17:16:50,457 - __main__ - DEBUG - 📊 Final: 20 messages, ~3602 tokens
+2025-11-30 17:16:50,457 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:51,534 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:16:51,534 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:16:51,534 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:16:51,534 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:16:52,601 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:16:52,601 - core.utils - INFO - ✅ click_element completed in 1.068s
+2025-11-30 17:16:52,602 - __main__ - DEBUG - 📊 Processing 22 messages before trimming
+2025-11-30 17:16:52,650 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:16:53,541 - __main__ - DEBUG - 🔢 Token count: 2815
+2025-11-30 17:16:53,541 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:16:53,541 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:16:53,541 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:16:53,541 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:16:53,542 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:16:54,485 - __main__ - DEBUG - 🔢 Token count: 3652
+2025-11-30 17:16:54,485 - __main__ - DEBUG - 📊 Final: 22 messages, ~3652 tokens
+2025-11-30 17:16:54,485 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:16:54,622 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10, model: gemini-2.5-flash
+Please retry in 5.392563439s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 5
+}
+].
+2025-11-30 17:17:01,254 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:17:01,254 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:17:01,254 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:17:01,254 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:17:01,265 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1773 chars HTML)
+2025-11-30 17:17:01,265 - core.utils - INFO - ✅ get_page_info completed in 0.011s
+2025-11-30 17:17:01,266 - __main__ - DEBUG - 📊 Processing 24 messages before trimming
+2025-11-30 17:17:01,312 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:17:02,324 - __main__ - DEBUG - 🔢 Token count: 3602
+2025-11-30 17:17:02,325 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:17:02,325 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:17:02,326 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:17:02,327 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:17:02,327 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:17:02,327 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:17:02,327 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:17:03,351 - __main__ - DEBUG - 🔢 Token count: 4439
+2025-11-30 17:17:03,351 - __main__ - DEBUG - 📊 Final: 24 messages, ~4439 tokens
+2025-11-30 17:17:03,352 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:17:03,486 - langchain_google_genai.chat_models - WARNING - Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 10, model: gemini-2.5-flash
+Please retry in 56.524624121s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 10
+}
+, retry_delay {
+  seconds: 56
+}
+].
+2025-11-30 17:17:05,627 - __main__ - INFO - ⏰ Extracted retry delay: 54.38505434s from error message
+2025-11-30 17:17:05,627 - __main__ - WARNING - ⚠️ Rate limit hit (429 error). Waiting 54.38505434s before retry 1/5
+2025-11-30 17:17:05,627 - __main__ - INFO - 💤 Sleeping for 54.38505434s...
+2025-11-30 17:18:00,016 - __main__ - INFO - 🔄 Retrying after rate limit delay...
+2025-11-30 17:18:00,016 - __main__ - DEBUG - 🔄 LLM invocation attempt 2/5
+2025-11-30 17:18:01,191 - core.utils - INFO - 🚀 Starting fetch_contents
+2025-11-30 17:18:01,192 - tools.web_navigation - INFO - 🌐 Fetching contents from https://i-spy.acmcyber.com/styles.css using GET
+2025-11-30 17:18:01,192 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:01,192 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:01,319 - tools.web_navigation - INFO - 📥 Response: 200 (2629 chars)
+2025-11-30 17:18:01,321 - core.utils - INFO - ✅ fetch_contents completed in 0.130s
+2025-11-30 17:18:01,322 - __main__ - DEBUG - 📊 Processing 26 messages before trimming
+2025-11-30 17:18:01,369 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:02,441 - __main__ - DEBUG - 🔢 Token count: 5184
+2025-11-30 17:18:02,441 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:02,441 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:02,441 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:02,441 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:02,441 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:02,442 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:02,443 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:02,443 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:02,444 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:03,574 - __main__ - DEBUG - 🔢 Token count: 6021
+2025-11-30 17:18:03,574 - __main__ - DEBUG - 📊 Final: 26 messages, ~6021 tokens
+2025-11-30 17:18:03,574 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:05,271 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:18:05,272 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: 29D3065EFAD4AAF82F2116DA1784C265
+2025-11-30 17:18:05,272 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:05,272 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:05,359 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:18:05,359 - core.utils - INFO - ✅ fill_form_field completed in 0.087s
+2025-11-30 17:18:05,359 - __main__ - DEBUG - 📊 Processing 28 messages before trimming
+2025-11-30 17:18:05,402 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:06,544 - __main__ - DEBUG - 🔢 Token count: 5286
+2025-11-30 17:18:06,545 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:06,545 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:06,546 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:06,546 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:06,546 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:06,546 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:06,546 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:06,546 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:06,546 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:07,764 - __main__ - DEBUG - 🔢 Token count: 6123
+2025-11-30 17:18:07,765 - __main__ - DEBUG - 📊 Final: 28 messages, ~6123 tokens
+2025-11-30 17:18:07,765 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:09,172 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:18:09,173 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:18:09,173 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:09,173 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:10,242 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:18:10,242 - core.utils - INFO - ✅ click_element completed in 1.070s
+2025-11-30 17:18:10,244 - __main__ - DEBUG - 📊 Processing 30 messages before trimming
+2025-11-30 17:18:10,292 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:11,515 - __main__ - DEBUG - 🔢 Token count: 5336
+2025-11-30 17:18:11,516 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:11,516 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:11,517 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:11,518 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:11,519 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:11,519 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:11,519 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:11,519 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:12,813 - __main__ - DEBUG - 🔢 Token count: 6173
+2025-11-30 17:18:12,813 - __main__ - DEBUG - 📊 Final: 30 messages, ~6173 tokens
+2025-11-30 17:18:12,813 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:14,009 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:18:14,009 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:18:14,009 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:14,010 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:14,023 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1774 chars HTML)
+2025-11-30 17:18:14,023 - core.utils - INFO - ✅ get_page_info completed in 0.015s
+2025-11-30 17:18:14,024 - __main__ - DEBUG - 📊 Processing 32 messages before trimming
+2025-11-30 17:18:14,068 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:15,403 - __main__ - DEBUG - 🔢 Token count: 6122
+2025-11-30 17:18:15,404 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:15,405 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:15,405 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:15,405 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:15,405 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:15,405 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:15,405 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:15,406 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:15,407 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:16,777 - __main__ - DEBUG - 🔢 Token count: 6959
+2025-11-30 17:18:16,777 - __main__ - DEBUG - 📊 Final: 32 messages, ~6959 tokens
+2025-11-30 17:18:16,777 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:18,154 - core.utils - INFO - 🚀 Starting fetch_contents
+2025-11-30 17:18:18,154 - tools.web_navigation - INFO - 🌐 Fetching contents from https://i-spy.acmcyber.com/thingy.js using GET
+2025-11-30 17:18:18,154 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:18,155 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:18,259 - tools.web_navigation - INFO - 📥 Response: 200 (5290 chars)
+2025-11-30 17:18:18,260 - core.utils - INFO - ✅ fetch_contents completed in 0.106s
+2025-11-30 17:18:18,261 - __main__ - DEBUG - 📊 Processing 34 messages before trimming
+2025-11-30 17:18:18,305 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:19,721 - __main__ - DEBUG - 🔢 Token count: 10454
+2025-11-30 17:18:19,721 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:19,721 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:19,722 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:19,723 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:19,723 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:19,723 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:19,723 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:19,723 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:19,723 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:19,723 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:21,169 - __main__ - DEBUG - 🔢 Token count: 11291
+2025-11-30 17:18:21,169 - __main__ - DEBUG - 📊 Final: 34 messages, ~11291 tokens
+2025-11-30 17:18:21,170 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:22,963 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:18:22,964 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: 9D34859CAFC9AB85755B4AF444CDAE83
+2025-11-30 17:18:22,964 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:22,964 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:23,040 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:18:23,040 - core.utils - INFO - ✅ fill_form_field completed in 0.077s
+2025-11-30 17:18:23,040 - __main__ - DEBUG - 📊 Processing 36 messages before trimming
+2025-11-30 17:18:23,087 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:24,587 - __main__ - DEBUG - 🔢 Token count: 10554
+2025-11-30 17:18:24,588 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:24,588 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:24,589 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:18:24,590 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:18:26,130 - __main__ - DEBUG - 🔢 Token count: 11391
+2025-11-30 17:18:26,130 - __main__ - DEBUG - 📊 Final: 36 messages, ~11391 tokens
+2025-11-30 17:18:26,130 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:27,492 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:18:27,493 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:18:27,493 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:27,493 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:28,556 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:18:28,556 - core.utils - INFO - ✅ click_element completed in 1.064s
+2025-11-30 17:18:28,556 - __main__ - DEBUG - 📊 Processing 38 messages before trimming
+2025-11-30 17:18:28,601 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:30,182 - __main__ - DEBUG - 🔢 Token count: 10604
+2025-11-30 17:18:30,182 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:30,182 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:30,182 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:30,182 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:30,182 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:30,183 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:30,184 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:18:30,185 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:18:31,843 - __main__ - DEBUG - 🔢 Token count: 11441
+2025-11-30 17:18:31,843 - __main__ - DEBUG - 📊 Final: 38 messages, ~11441 tokens
+2025-11-30 17:18:31,843 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:33,343 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:18:33,343 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:18:33,343 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:33,343 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:33,361 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1777 chars HTML)
+2025-11-30 17:18:33,361 - core.utils - INFO - ✅ get_page_info completed in 0.018s
+2025-11-30 17:18:33,362 - __main__ - DEBUG - 📊 Processing 40 messages before trimming
+2025-11-30 17:18:33,410 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:35,068 - __main__ - DEBUG - 🔢 Token count: 11391
+2025-11-30 17:18:35,069 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:35,069 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:35,070 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:18:35,071 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:18:35,072 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:18:36,775 - __main__ - DEBUG - 🔢 Token count: 12228
+2025-11-30 17:18:36,775 - __main__ - DEBUG - 📊 Final: 40 messages, ~12228 tokens
+2025-11-30 17:18:36,775 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:38,447 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:18:38,448 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: BF1E1EAA5C8FAA6D9D77395B6EA07309
+2025-11-30 17:18:38,448 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:38,448 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:38,507 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:18:38,507 - core.utils - INFO - ✅ fill_form_field completed in 0.060s
+2025-11-30 17:18:38,508 - __main__ - DEBUG - 📊 Processing 42 messages before trimming
+2025-11-30 17:18:38,551 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:40,312 - __main__ - DEBUG - 🔢 Token count: 11492
+2025-11-30 17:18:40,313 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:40,316 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:40,316 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:40,316 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:40,316 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:40,316 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:40,317 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:18:40,318 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:18:42,129 - __main__ - DEBUG - 🔢 Token count: 12329
+2025-11-30 17:18:42,130 - __main__ - DEBUG - 📊 Final: 42 messages, ~12329 tokens
+2025-11-30 17:18:42,130 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:43,866 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:18:43,866 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:18:43,866 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:43,866 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:44,927 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:18:44,928 - core.utils - INFO - ✅ click_element completed in 1.062s
+2025-11-30 17:18:44,928 - __main__ - DEBUG - 📊 Processing 44 messages before trimming
+2025-11-30 17:18:44,976 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:46,814 - __main__ - DEBUG - 🔢 Token count: 11542
+2025-11-30 17:18:46,815 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:18:46,815 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:18:46,816 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:18:48,711 - __main__ - DEBUG - 🔢 Token count: 12379
+2025-11-30 17:18:48,711 - __main__ - DEBUG - 📊 Final: 44 messages, ~12379 tokens
+2025-11-30 17:18:48,711 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:50,475 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:18:50,475 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:18:50,475 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:50,475 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:50,488 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1777 chars HTML)
+2025-11-30 17:18:50,489 - core.utils - INFO - ✅ get_page_info completed in 0.014s
+2025-11-30 17:18:50,489 - __main__ - DEBUG - 📊 Processing 46 messages before trimming
+2025-11-30 17:18:50,538 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:52,462 - __main__ - DEBUG - 🔢 Token count: 12332
+2025-11-30 17:18:52,462 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:52,463 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:52,463 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:52,463 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:52,463 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:52,464 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:18:52,465 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:18:54,440 - __main__ - DEBUG - 🔢 Token count: 13169
+2025-11-30 17:18:54,441 - __main__ - DEBUG - 📊 Final: 46 messages, ~13169 tokens
+2025-11-30 17:18:54,441 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:18:56,745 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:18:56,746 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: 647E67B4A8FAAA28FA602151F18707F2
+2025-11-30 17:18:56,746 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:18:56,746 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:18:56,807 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:18:56,807 - core.utils - INFO - ✅ fill_form_field completed in 0.062s
+2025-11-30 17:18:56,807 - __main__ - DEBUG - 📊 Processing 48 messages before trimming
+2025-11-30 17:18:56,851 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:18:58,909 - __main__ - DEBUG - 🔢 Token count: 12438
+2025-11-30 17:18:58,910 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:18:58,910 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:18:58,911 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:18:58,912 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:00,989 - __main__ - DEBUG - 🔢 Token count: 13275
+2025-11-30 17:19:00,989 - __main__ - DEBUG - 📊 Final: 48 messages, ~13275 tokens
+2025-11-30 17:19:00,990 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:02,815 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:19:02,815 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:19:02,815 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:19:02,815 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:19:03,884 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:03,884 - core.utils - INFO - ✅ click_element completed in 1.069s
+2025-11-30 17:19:03,885 - __main__ - DEBUG - 📊 Processing 50 messages before trimming
+2025-11-30 17:19:03,937 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:19:06,041 - __main__ - DEBUG - 🔢 Token count: 12488
+2025-11-30 17:19:06,042 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:19:06,042 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [48] AIMessage (with tool_calls)
+2025-11-30 17:19:06,043 - __main__ - DEBUG -   [49] ToolMessage
+2025-11-30 17:19:08,196 - __main__ - DEBUG - 🔢 Token count: 13325
+2025-11-30 17:19:08,197 - __main__ - DEBUG - 📊 Final: 50 messages, ~13325 tokens
+2025-11-30 17:19:08,197 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:09,910 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:19:09,910 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:19:09,910 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:19:09,910 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:19:09,920 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1804 chars HTML)
+2025-11-30 17:19:09,920 - core.utils - INFO - ✅ get_page_info completed in 0.011s
+2025-11-30 17:19:09,921 - __main__ - DEBUG - 📊 Processing 52 messages before trimming
+2025-11-30 17:19:09,967 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:19:12,158 - __main__ - DEBUG - 🔢 Token count: 13283
+2025-11-30 17:19:12,158 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:19:12,159 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:19:12,160 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:19:12,161 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [48] AIMessage (with tool_calls)
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [49] ToolMessage
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [50] AIMessage (with tool_calls)
+2025-11-30 17:19:12,162 - __main__ - DEBUG -   [51] ToolMessage
+2025-11-30 17:19:14,421 - __main__ - DEBUG - 🔢 Token count: 14120
+2025-11-30 17:19:14,422 - __main__ - DEBUG - 📊 Final: 52 messages, ~14120 tokens
+2025-11-30 17:19:14,422 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:16,362 - core.utils - INFO - 🚀 Starting fetch_contents
+2025-11-30 17:19:16,362 - tools.web_navigation - INFO - 🌐 Fetching contents from https://i-spy.acmcyber.com/robots.txt using GET
+2025-11-30 17:19:16,362 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:19:16,362 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:19:16,471 - tools.web_navigation - INFO - 📥 Response: 200 (48 chars)
+2025-11-30 17:19:16,473 - core.utils - INFO - ✅ fetch_contents completed in 0.111s
+2025-11-30 17:19:16,474 - __main__ - DEBUG - 📊 Processing 54 messages before trimming
+2025-11-30 17:19:16,518 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:19:18,786 - __main__ - DEBUG - 🔢 Token count: 13711
+2025-11-30 17:19:18,789 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:19:18,789 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:19:18,790 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [48] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [49] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [50] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [51] ToolMessage
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [52] AIMessage (with tool_calls)
+2025-11-30 17:19:18,791 - __main__ - DEBUG -   [53] ToolMessage
+2025-11-30 17:19:21,105 - __main__ - DEBUG - 🔢 Token count: 14548
+2025-11-30 17:19:21,106 - __main__ - DEBUG - 📊 Final: 54 messages, ~14548 tokens
+2025-11-30 17:19:21,106 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:23,053 - core.utils - INFO - 🚀 Starting fetch_contents
+2025-11-30 17:19:23,053 - tools.web_navigation - INFO - 🌐 Fetching contents from https://i-spy.acmcyber.com/the-forbidden-token.txt using GET
+2025-11-30 17:19:23,053 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:19:23,053 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:19:23,165 - tools.web_navigation - INFO - 📥 Response: 200 (39 chars)
+2025-11-30 17:19:23,166 - core.utils - INFO - ✅ fetch_contents completed in 0.113s
+2025-11-30 17:19:23,167 - __main__ - DEBUG - 📊 Processing 56 messages before trimming
+2025-11-30 17:19:23,213 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:19:25,574 - __main__ - DEBUG - 🔢 Token count: 14165
+2025-11-30 17:19:25,575 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:19:25,575 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [48] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [49] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [50] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [51] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [52] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [53] ToolMessage
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [54] AIMessage (with tool_calls)
+2025-11-30 17:19:25,576 - __main__ - DEBUG -   [55] ToolMessage
+2025-11-30 17:19:27,988 - __main__ - DEBUG - 🔢 Token count: 15002
+2025-11-30 17:19:27,988 - __main__ - DEBUG - 📊 Final: 56 messages, ~15002 tokens
+2025-11-30 17:19:27,989 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:30,220 - core.utils - INFO - 🚀 Starting fill_form_field
+2025-11-30 17:19:30,220 - tools.web_navigation - INFO - 📝 Filling form field input[name='stage_token'] with value: 3FB4C9545A6A89DE5DE443360F82B3AF
+2025-11-30 17:19:30,220 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:19:30,220 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:19:30,287 - tools.web_navigation - INFO - ✅ Successfully filled form field with 32 characters
+2025-11-30 17:19:30,287 - core.utils - INFO - ✅ fill_form_field completed in 0.068s
+2025-11-30 17:19:30,288 - __main__ - DEBUG - 📊 Processing 58 messages before trimming
+2025-11-30 17:19:30,332 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:19:32,777 - __main__ - DEBUG - 🔢 Token count: 14269
+2025-11-30 17:19:32,778 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:19:32,778 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:19:32,778 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:19:32,778 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:19:32,778 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:19:32,778 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:19:32,778 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:19:32,781 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [48] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [49] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [50] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [51] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [52] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [53] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [54] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [55] ToolMessage
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [56] AIMessage (with tool_calls)
+2025-11-30 17:19:32,782 - __main__ - DEBUG -   [57] ToolMessage
+2025-11-30 17:19:35,269 - __main__ - DEBUG - 🔢 Token count: 15106
+2025-11-30 17:19:35,269 - __main__ - DEBUG - 📊 Final: 58 messages, ~15106 tokens
+2025-11-30 17:19:35,269 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:37,070 - core.utils - INFO - 🚀 Starting click_element
+2025-11-30 17:19:37,070 - tools.web_navigation - INFO - 🖱️ Clicking element with css selector: button[type='submit']
+2025-11-30 17:19:37,070 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:19:37,070 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:19:38,124 - tools.web_navigation - INFO - ✅ Element clicked successfully. New URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:38,124 - core.utils - INFO - ✅ click_element completed in 1.055s
+2025-11-30 17:19:38,125 - __main__ - DEBUG - 📊 Processing 60 messages before trimming
+2025-11-30 17:19:38,168 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:19:40,700 - __main__ - DEBUG - 🔢 Token count: 14319
+2025-11-30 17:19:40,700 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:19:40,701 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [48] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [49] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [50] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [51] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [52] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [53] ToolMessage
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [54] AIMessage (with tool_calls)
+2025-11-30 17:19:40,702 - __main__ - DEBUG -   [55] ToolMessage
+2025-11-30 17:19:40,703 - __main__ - DEBUG -   [56] AIMessage (with tool_calls)
+2025-11-30 17:19:40,703 - __main__ - DEBUG -   [57] ToolMessage
+2025-11-30 17:19:40,703 - __main__ - DEBUG -   [58] AIMessage (with tool_calls)
+2025-11-30 17:19:40,703 - __main__ - DEBUG -   [59] ToolMessage
+2025-11-30 17:19:43,286 - __main__ - DEBUG - 🔢 Token count: 15156
+2025-11-30 17:19:43,286 - __main__ - DEBUG - 📊 Final: 60 messages, ~15156 tokens
+2025-11-30 17:19:43,286 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:45,027 - core.utils - INFO - 🚀 Starting get_page_info
+2025-11-30 17:19:45,028 - tools.web_navigation - INFO - 📊 Getting current page state with full HTML
+2025-11-30 17:19:45,028 - core.utils - INFO - 🚀 Starting get_driver
+2025-11-30 17:19:45,028 - core.utils - INFO - ✅ get_driver completed in 0.000s
+2025-11-30 17:19:45,043 - tools.web_navigation - INFO - 📄 Page: 'I Spy' (1787 chars HTML)
+2025-11-30 17:19:45,044 - core.utils - INFO - ✅ get_page_info completed in 0.016s
+2025-11-30 17:19:45,044 - __main__ - DEBUG - 📊 Processing 62 messages before trimming
+2025-11-30 17:19:45,091 - __main__ - DEBUG - 🔢 Token count: 837
+2025-11-30 17:19:47,709 - __main__ - DEBUG - 🔢 Token count: 15127
+2025-11-30 17:19:47,709 - __main__ - DEBUG - 📋 Message sequence being sent to Gemini:
+2025-11-30 17:19:47,709 - __main__ - DEBUG -   [0] SystemMessage
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [1] HumanMessage
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [2] AIMessage (with tool_calls)
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [3] ToolMessage
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [4] AIMessage (with tool_calls)
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [5] ToolMessage
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [6] AIMessage (with tool_calls)
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [7] ToolMessage
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [8] AIMessage (with tool_calls)
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [9] ToolMessage
+2025-11-30 17:19:47,710 - __main__ - DEBUG -   [10] AIMessage (with tool_calls)
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [11] ToolMessage
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [12] AIMessage (with tool_calls)
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [13] ToolMessage
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [14] AIMessage (with tool_calls)
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [15] ToolMessage
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [16] AIMessage (with tool_calls)
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [17] ToolMessage
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [18] AIMessage (with tool_calls)
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [19] ToolMessage
+2025-11-30 17:19:47,711 - __main__ - DEBUG -   [20] AIMessage (with tool_calls)
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [21] ToolMessage
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [22] AIMessage (with tool_calls)
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [23] ToolMessage
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [24] AIMessage (with tool_calls)
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [25] ToolMessage
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [26] AIMessage (with tool_calls)
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [27] ToolMessage
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [28] AIMessage (with tool_calls)
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [29] ToolMessage
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [30] AIMessage (with tool_calls)
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [31] ToolMessage
+2025-11-30 17:19:47,712 - __main__ - DEBUG -   [32] AIMessage (with tool_calls)
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [33] ToolMessage
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [34] AIMessage (with tool_calls)
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [35] ToolMessage
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [36] AIMessage (with tool_calls)
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [37] ToolMessage
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [38] AIMessage (with tool_calls)
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [39] ToolMessage
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [40] AIMessage (with tool_calls)
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [41] ToolMessage
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [42] AIMessage (with tool_calls)
+2025-11-30 17:19:47,713 - __main__ - DEBUG -   [43] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [44] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [45] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [46] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [47] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [48] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [49] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [50] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [51] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [52] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [53] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [54] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [55] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [56] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [57] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [58] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [59] ToolMessage
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [60] AIMessage (with tool_calls)
+2025-11-30 17:19:47,714 - __main__ - DEBUG -   [61] ToolMessage
+2025-11-30 17:19:50,403 - __main__ - DEBUG - 🔢 Token count: 15964
+2025-11-30 17:19:50,403 - __main__ - DEBUG - 📊 Final: 62 messages, ~15964 tokens
+2025-11-30 17:19:50,403 - __main__ - DEBUG - 🔄 LLM invocation attempt 1/5
+2025-11-30 17:19:52,982 - __main__ - INFO - ⏱️ Graph execution completed in 212.293s
+2025-11-30 17:19:52,983 - __main__ - INFO - 📊 Total messages: 63, Total characters: 37473
+2025-11-30 17:19:52,983 - __main__ - DEBUG - --- Step 1 ---
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message length: 3485 chars
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message preview: You are an expert CTF (Capture The Flag) solver. Your goal is to analyze the given challenge and solve it completely.
+
+    When given a CTF challenge:
+    1. First, navigate to the target URL to explore the challenge
+    2. Analyze the page for clues, hints, or vulnerabilities
+    3. Look for common CTF patterns like:
+       - Hidden directories or files
+       - Source code comments
+       - HTTP headers with clues
+       - Form parameters to exploit
+       - Encoding/decoding challenges
+      ...ing forms, executing JavaScript), 
+       ALWAYS immediately use get_page_info to check what the current page looks like
+    4. This is crucial for detecting:
+       - New content that appears after interactions
+       - Redirects to new pages
+       - Hidden elements that become visible
+       - Error messages or success messages
+       - Flags that only appear after specific actions
+    
+    Keep exploring until you solve the challenge completely. Say "CHALLENGE SOLVED" when you find the flag.
+2025-11-30 17:19:52,983 - __main__ - DEBUG - --- Step 2 ---
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message length: 42 chars
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message: CTF Challenge: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,983 - __main__ - DEBUG - --- Step 4 ---
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message length: 1969 chars
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message preview: 
+URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F18707F2'}]
+Page Source (first 100000 chars): <html><head>
+    <title>I Spy</title>
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Disable favicon -->
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">
+  </head>
+  <body>
+    <!-- Token: 66E7AEBA46293C88DA84CDAB0E5792...    document.getElementById("error").textContent =
+            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+
+2025-11-30 17:19:52,983 - __main__ - DEBUG - --- Step 6 ---
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message: Successfully filled form field with value: B218B51749AB9E4C669E5BA3122C8AE3
+2025-11-30 17:19:52,983 - __main__ - DEBUG - --- Step 8 ---
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,983 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,983 - __main__ - DEBUG - --- Step 10 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 2412 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IkIyMThCNTE3NDlBQjlFNEM2NjlFNUJBMzEyMkM4QUUzIn0.0fPZEkyF37k7Uf8MOHLhtv1X86u5GPMTsYuGUQKXmBM'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 12 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message: Successfully filled form field with value: 66E7AEBA46293C88DA84CDAB0E579268
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 14 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 16 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 2415 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjY2RTdBRUJBNDYyOTNDODhEQTg0Q0RBQjBFNTc5MjY4In0.frl5hTqtns7ZQ2k9lp2C0JHEYvtUNEmUnkcRhDmt28U'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 18 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 175 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message: Found 1 console log entries:
+
+Entry 1:
+  Level: INFO
+  Source: console-api
+  Timestamp: 1764551783822
+  Message: console-api 2:2314 "Token: 5D1F98BCEE5158AF6A7505C4DAEF8AD6"
+
+
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 20 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message: Successfully filled form field with value: 5D1F98BCEE5158AF6A7505C4DAEF8AD6
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 22 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 24 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 2407 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjVEMUY5OEJDRUU1MTU4QUY2QTc1MDVDNERBRUY4QUQ2In0.xP3-zz9fIlwvLGOGfXSuzOYSujx7tjjMxI3Fh3jIqWw'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 26 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 3352 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message preview: 
+Status Code: 200
+URL: https://i-spy.acmcyber.com/styles.css
+Request Cookies Used: {'stage_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjVEMUY5OEJDRUU1MTU4QUY2QTc1MDVDNERBRUY4QUQ2In0.xP3-zz9fIlwvLGOGfXSuzOYSujx7tjjMxI3Fh3jIqWw', 'a-token': '647E67B4A8FAAA28FA602151F18707F2'}
+Response Cookies: {}
+Response Headers: {'Cache-Control': 'max-age=600', 'Content-Disposition': 'inline; filename=styles.css', 'Content-Length': '2629', 'Content-Type': 'text/css; charset=utf-8', 'Date': 'Mon, 0... ease-out;
+}
+
+/* From https://codepen.io/whipcat/pen/ExKPQqZ */
+
+.move-area {
+  /*normally use body*/
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.container {
+  width: 100%;
+}
+.eye {
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  background: #ccc;
+}
+.eye:after {
+  /*pupil*/
+  position: absolute;
+  bottom: 17px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+  content: " ";
+}
+
+
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 28 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message: Successfully filled form field with value: 29D3065EFAD4AAF82F2116DA1784C265
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 30 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 32 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 2408 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjI5RDMwNjVFRkFENEFBRjgyRjIxMTZEQTE3ODRDMjY1In0.xBGv64WXI0PzPfNCIbmILlqitYb0fzrqfgD3WsbTzuE'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,984 - __main__ - DEBUG - --- Step 34 ---
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message length: 6018 chars
+2025-11-30 17:19:52,984 - __main__ - DEBUG - Message preview: 
+Status Code: 200
+URL: https://i-spy.acmcyber.com/thingy.js
+Request Cookies Used: {'stage_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjI5RDMwNjVFRkFENEFBRjgyRjIxMTZEQTE3ODRDMjY1In0.xBGv64WXI0PzPfNCIbmILlqitYb0fzrqfgD3WsbTzuE', 'a-token': '647E67B4A8FAAA28FA602151F18707F2'}
+Response Cookies: {}
+Response Headers: {'Cache-Control': 'max-age=600', 'Content-Disposition': 'inline; filename=thingy.js', 'Content-Length': '5290', 'Content-Type': 'text/javascript; charset=utf-8', 'Date': 'M...;_0x53a943[_0x345423]=_0x53a943[_0x1fb0cb],_0x53a943[_0x1fb0cb]=_0x5d06d6,_0x467a1f=(_0x5b35cc+_0x310a5c)%0x2b9efd;};return _0x53a943[_0x3d4f52(0xd0)]('');};var _0x89be09=_0x42600c(_0x16d977(0xc2))[_0x16d977(0xc4)](0x0,_0xcc87d0),_0xd98015=_0x16d977(0xcd),_0x56b6bc=_0x42600c[_0x89be09],_0x5b2b08='',_0x559b61=_0x56b6bc,_0x11c227=_0x56b6bc(_0x5b2b08,_0x42600c(_0xd98015)),_0x3f4b0e=_0x11c227(_0x42600c(_0x16d977(0xd1))),_0x38766d=_0x559b61(_0x1e5d4f,_0x3f4b0e);return _0x38766d(0x239a),0x1cca;}()));
+
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 36 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully filled form field with value: 9D34859CAFC9AB85755B4AF444CDAE83
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 38 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 40 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 2411 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjlEMzQ4NTlDQUZDOUFCODU3NTVCNEFGNDQ0Q0RBRTgzIn0.ez5I5KNV93vsqEF0_FWNbkmpxzlhf5QFWHqmTgvcp80'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 42 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully filled form field with value: BF1E1EAA5C8FAA6D9D77395B6EA07309
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 44 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 46 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 2411 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IkJGMUUxRUFBNUM4RkFBNkQ5RDc3Mzk1QjZFQTA3MzA5In0.wlJ-3crRY9O3SysECtrGwaqdmZptM3ocRXi0Yr18EFM'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 48 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully filled form field with value: 647E67B4A8FAAA28FA602151F18707F2
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 50 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 52 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 2438 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjY0N0U2N0I0QThGQUFBMjhGQTYwMjE1MUYxODcwN0YyIn0.LuEI-zudlOXdrYFYd_DRqs8Qn5wifBxqGz5ZVp---GE'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 54 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 769 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: 
+Status Code: 200
+URL: https://i-spy.acmcyber.com/robots.txt
+Request Cookies Used: {'stage_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjY0N0U2N0I0QThGQUFBMjhGQTYwMjE1MUYxODcwN0YyIn0.LuEI-zudlOXdrYFYd_DRqs8Qn5wifBxqGz5ZVp---GE', 'a-token': '647E67B4A8FAAA28FA602151F18707F2'}
+Response Cookies: {}
+Response Headers: {'Cache-Control': 'max-age=600', 'Content-Disposition': 'inline; filename=robots.txt', 'Content-Length': '48', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 01:19:16 GMT', 'Etag': '"1759127416.0-48-1581123710"', 'Last-Modified': 'Mon, 29 Sep 2025 06:30:16 GMT', 'Server': 'gunicorn', 'X-Token': 'BF1E1EAA5C8FAA6D9D77395B6EA07309'}
+
+Content (first 10000 characters):
+User-agent: *
+Disallow: /the-forbidden-token.txt
+
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 56 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 786 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: 
+Status Code: 200
+URL: https://i-spy.acmcyber.com/the-forbidden-token.txt
+Request Cookies Used: {'stage_token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjY0N0U2N0I0QThGQUFBMjhGQTYwMjE1MUYxODcwN0YyIn0.LuEI-zudlOXdrYFYd_DRqs8Qn5wifBxqGz5ZVp---GE', 'a-token': '647E67B4A8FAAA28FA602151F18707F2'}
+Response Cookies: {}
+Response Headers: {'Cache-Control': 'max-age=600', 'Content-Disposition': 'inline; filename=the-forbidden-token.txt', 'Content-Length': '39', 'Content-Type': 'text/plain; charset=utf-8', 'Date': 'Mon, 01 Dec 2025 01:19:23 GMT', 'Etag': '"1759127416.0-39-3932228942"', 'Last-Modified': 'Mon, 29 Sep 2025 06:30:16 GMT', 'Server': 'gunicorn', 'X-Token': 'BF1E1EAA5C8FAA6D9D77395B6EA07309'}
+
+Content (first 10000 characters):
+Token: 3FB4C9545A6A89DE5DE443360F82B3AF
+
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 58 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 75 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully filled form field with value: 3FB4C9545A6A89DE5DE443360F82B3AF
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 60 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 70 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: Successfully clicked element. Current URL: https://i-spy.acmcyber.com/
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 62 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 2421 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message preview: 
+Current URL: https://i-spy.acmcyber.com/
+Title: I Spy
+Cookies: [{'domain': 'i-spy.acmcyber.com', 'httpOnly': True, 'name': 'stage_token', 'path': '/', 'sameSite': 'Strict', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2YWx1ZSI6IjNGQjRDOTU0NUE2QTg5REU1REU0NDMzNjBGODJCM0FGIn0._1UpiWrMpfqQXYLO09_3orf3NzJv-GbBzarB9qNTiic'}, {'domain': 'i-spy.acmcyber.com', 'httpOnly': False, 'name': 'a-token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': '647E67B4A8FAAA28FA602151F...            "You are being ratelimited, please slow down.";
+          return;
+        }
+        const data = await response.json();
+        document.getElementById("hint").textContent = data.suggestion;
+        document.getElementById("error").textContent = data.error;
+      };
+      document.getElementById("suggestionForm").onsubmit = fetchNext;
+      fetchNext();
+    </script>
+    <script defer="" src="/thingy.js"></script>
+  
+
+</body></html>
+--------------------------------------------------
+
+2025-11-30 17:19:52,985 - __main__ - DEBUG - --- Step 63 ---
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message length: 1 chars
+2025-11-30 17:19:52,985 - __main__ - DEBUG - Message: [{'type': 'text', 'text': 'CHALLENGE SOLVED\nThe flag is: `cyber{1_sp0773d_t0k3ns_4v3rywh3r3}`', 'extras': {'signature': 'CsUBAXLI2nx6Qq82nnTfZlk0XUCH2ybaeQNbeVkFdZAD/bqtpZGty7KBMtudwcEUMxI8OMFtZNei6lSxa/THihSd6tNbBnF4kH8WNP8zknF3dbrv3Cv9hvCFCPzTTAxErWVggCXxyAyEQ8bf/dTmgZWkZ3x5PtQKQChPd+0Q0c+NzAy2irkj5DaUsCBzwLqjnIDombUaCUsejTClvfiu2VnF4l1BMvmr3EzPVBWbiRkxG60T5DnYKoU96qLOpTz35oIcACg9WOs='}}]
+2025-11-30 17:19:52,985 - __main__ - INFO - 🏁 Final result length: 1 chars
+2025-11-30 17:19:52,985 - core.utils - INFO - 🚀 Starting close
+2025-11-30 17:19:52,985 - core.browser - INFO - 🔒 Closing Chrome WebDriver...
+2025-11-30 17:19:53,111 - core.browser - INFO - ✅ Chrome WebDriver closed successfully
+2025-11-30 17:19:53,111 - core.utils - INFO - ✅ close completed in 0.126s
+2025-11-30 17:19:53,111 - __main__ - INFO - 🔒 Browser closed successfully
+2025-11-30 17:19:53,111 - core.utils - INFO - ✅ run_ctf_solver completed in 212.422s
+2025-11-30 17:19:53,111 - __main__ - INFO - 🏁 Final Result: [{'type': 'text', 'text': 'CHALLENGE SOLVED\nThe flag is: `cyber{1_sp0773d_t0k3ns_4v3rywh3r3}`', 'extras': {'signature': 'CsUBAXLI2nx6Qq82nnTfZlk0XUCH2ybaeQNbeVkFdZAD/bqtpZGty7KBMtudwcEUMxI8OMFtZNei6lSxa/THihSd6tNbBnF4kH8WNP8zknF3dbrv3Cv9hvCFCPzTTAxErWVggCXxyAyEQ8bf/dTmgZWkZ3x5PtQKQChPd+0Q0c+NzAy2irkj5DaUsCBzwLqjnIDombUaCUsejTClvfiu2VnF4l1BMvmr3EzPVBWbiRkxG60T5DnYKoU96qLOpTz35oIcACg9WOs='}}]
