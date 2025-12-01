@@ -46,7 +46,7 @@ Before running the project, ensure you have the following installed:
     Create a `.env` file in the root directory and add your Google Gemini API key:
     ```bash
     GEMINI_API_KEY=your_api_key_here
-    GEMINI_MODEL=gemini-2.5-pro # Optional, defaults to gemini-2.5-pro
+    GEMINI_MODEL=gemini-2.5-flash # Optional, defaults to gemini-2.5-flash
     ```
 
 ## 🖥️ Usage
