@@ -13,16 +13,18 @@ import json
 import logging
 from datetime import datetime
 from functools import wraps
-import tiktoken
+import os
 from langchain_core.tools import tool
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import trim_messages
-from langchain_openai import AzureChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode
 from langgraph.checkpoint.memory import MemorySaver
 
 from dotenv import load_dotenv
+from google.api_core.exceptions import ResourceExhausted
+import re
 
 load_dotenv()
 
@@ -41,7 +43,8 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 # Set specific library loggers to INFO level to reduce noise
-logging.getLogger('openai').setLevel(logging.INFO)
+logging.getLogger('google.generativeai').setLevel(logging.INFO)
+logging.getLogger('google.ai').setLevel(logging.INFO)
 logging.getLogger('httpx').setLevel(logging.INFO)
 logging.getLogger('urllib3').setLevel(logging.INFO)
 logging.getLogger('selenium').setLevel(logging.INFO)
@@ -51,7 +54,7 @@ logging.getLogger('selenium.webdriver.common').setLevel(logging.INFO)
 logging.getLogger('requests').setLevel(logging.INFO)
 logging.getLogger('webdriver_manager').setLevel(logging.INFO)
 logging.getLogger('langchain').setLevel(logging.INFO)
-logging.getLogger('langchain_openai').setLevel(logging.INFO)
+logging.getLogger('langchain_google_genai').setLevel(logging.INFO)
 logging.getLogger('langchain_core').setLevel(logging.INFO)
 logging.getLogger('langgraph').setLevel(logging.INFO)
 
@@ -134,32 +137,6 @@ class BrowserManager:
 
 # Global browser manager instance
 browser_manager = BrowserManager()
-
-def custom_token_counter(messages):
-    """Custom token counter that uses GPT-4 encoding for Azure OpenAI compatibility."""
-    try:
-        # Use GPT-4 encoding as a fallback for Azure OpenAI
-        encoding = tiktoken.encoding_for_model("gpt-4")
-        total_tokens = 0
-        
-        for message in messages:
-            if hasattr(message, 'content') and message.content:
-                total_tokens += len(encoding.encode(str(message.content)))
-            elif isinstance(message, str):
-                total_tokens += len(encoding.encode(message))
-                
-        logger.debug(f"🔢 Token count: {total_tokens}")
-        return total_tokens
-    except Exception as e:
-        logger.warning(f"⚠️ Token counting failed: {e}, using character-based estimate")
-        # Fallback to character-based estimation (roughly 4 chars per token)
-        total_chars = 0
-        for message in messages:
-            if hasattr(message, 'content') and message.content:
-                total_chars += len(str(message.content))
-            elif isinstance(message, str):
-                total_chars += len(message)
-        return total_chars // 4
 
 @tool
 @timing_decorator
@@ -649,10 +626,163 @@ def get_console_logs() -> str:
             return f"Error getting console logs: {str(e)}. Fallback error: {str(inner_e)}"
 
 # Create the LLM with tools
-llm = AzureChatOpenAI(
-    azure_deployment="gpt-4o",  # Replace with your deployment name
-    api_version="2024-12-01-preview"
+llm = ChatGoogleGenerativeAI(
+    model=os.getenv("GEMINI_MODEL", "gemini-2.5-pro"),
+    google_api_key=os.getenv("GEMINI_API_KEY"),
+    temperature=0,
+    max_retries=2
 )
+
+def extract_retry_delay(error_message: str) -> float:
+    """Extract retry delay from Gemini API error message.
+
+    Args:
+        error_message: The error message string
+
+    Returns:
+        Retry delay in seconds, defaults to 60 if not found
+    """
+    # Look for "Please retry in X.Xs" or "retry_delay { seconds: X }"
+    patterns = [
+        r'Please retry in ([\d.]+)s',
+        r'retry_delay\s*{\s*seconds:\s*(\d+)',
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, error_message)
+        if match:
+            delay = float(match.group(1))
+            logger.info(f"⏰ Extracted retry delay: {delay}s from error message")
+            return delay
+
+    # Default to 60 seconds if we can't parse the delay
+    logger.warning("⚠️ Could not extract retry delay from error, using default 60s")
+    return 60.0
+
+def invoke_llm_with_rate_limit_handling(llm_instance, messages, max_attempts=5):
+    """Invoke LLM with automatic rate limit handling.
+
+    Args:
+        llm_instance: The LLM instance to invoke
+        messages: Messages to send to the LLM
+        max_attempts: Maximum number of retry attempts
+
+    Returns:
+        The LLM response
+
+    Raises:
+        Exception: If all retry attempts fail
+    """
+    attempt = 0
+    while attempt < max_attempts:
+        try:
+            logger.debug(f"🔄 LLM invocation attempt {attempt + 1}/{max_attempts}")
+            return llm_instance.invoke(messages)
+        except ResourceExhausted as e:
+            attempt += 1
+            error_msg = str(e)
+
+            if attempt >= max_attempts:
+                logger.error(f"❌ Max retry attempts ({max_attempts}) reached")
+                raise
+
+            # Extract retry delay from error message
+            retry_delay = extract_retry_delay(error_msg)
+
+            logger.warning(f"⚠️ Rate limit hit (429 error). Waiting {retry_delay}s before retry {attempt}/{max_attempts}")
+            logger.info(f"💤 Sleeping for {retry_delay}s...")
+
+            time.sleep(retry_delay)
+
+            logger.info(f"🔄 Retrying after rate limit delay...")
+        except Exception as e:
+            # For non-rate-limit errors, log details and raise
+            error_type = type(e).__name__
+            error_msg = str(e)
+            logger.error(f"❌ Non-rate-limit error occurred: {error_type}: {error_msg}")
+
+            # If it's a message ordering error, provide helpful context
+            if "400" in error_msg and ("function call turn" in error_msg.lower() or "tool" in error_msg.lower()):
+                logger.error("💡 This appears to be a message ordering issue.")
+                logger.error("💡 Check that tool_calls are followed by tool responses.")
+                logger.error("💡 Message sequence validation should have caught this.")
+
+            raise
+
+    raise Exception(f"Failed to invoke LLM after {max_attempts} attempts")
+
+def validate_message_sequence(messages):
+    """Validate message sequence follows Gemini's ordering requirements.
+
+    Gemini's Requirements (from error message):
+    - Function call turn (AI message with tool_calls) must come immediately after:
+      * A user/human turn, OR
+      * A function/tool response turn
+    - Tool messages must be followed by either another tool message OR an AI message
+    - Tool messages must be preceded by an AI message with tool_calls
+
+    Returns:
+        Tuple of (is_valid: bool, error_message: str)
+    """
+    from langchain_core.messages import AIMessage, ToolMessage, HumanMessage
+
+    for i, msg in enumerate(messages):
+        # Check AI messages with tool_calls (function call turn)
+        if isinstance(msg, AIMessage) and hasattr(msg, 'tool_calls') and msg.tool_calls:
+            # Must come after a user turn OR a function response turn
+            if i == 0:
+                return False, f"AI message with tool_calls at position {i} cannot be first (must follow user or tool message)"
+
+            prev_msg = messages[i - 1]
+            # Previous message must be Human or Tool
+            if not (isinstance(prev_msg, (HumanMessage, ToolMessage))):
+                msg_type = type(prev_msg).__name__
+                return False, f"AI message with tool_calls at position {i} must come after HumanMessage or ToolMessage (found {msg_type})"
+
+            # Next message(s) must be tool responses
+            if i + 1 >= len(messages):
+                return False, f"AI message with tool_calls at position {i} has no following tool messages"
+
+            next_msg = messages[i + 1]
+            if not isinstance(next_msg, ToolMessage):
+                msg_type = type(next_msg).__name__
+                return False, f"AI message with tool_calls at position {i} not followed by ToolMessage (found {msg_type})"
+
+        # Check tool messages
+        if isinstance(msg, ToolMessage):
+            # Previous message must be AI message with tool_calls OR another tool message
+            if i == 0:
+                return False, f"ToolMessage at position {i} cannot be first"
+
+            prev_msg = messages[i - 1]
+            # Allow consecutive tool messages (multiple tool responses)
+            if isinstance(prev_msg, ToolMessage):
+                continue
+
+            if not (isinstance(prev_msg, AIMessage) and hasattr(prev_msg, 'tool_calls') and prev_msg.tool_calls):
+                msg_type = type(prev_msg).__name__
+                return False, f"ToolMessage at position {i} not preceded by AI message with tool_calls (found {msg_type})"
+
+    return True, "Valid"
+
+def custom_token_counter(messages):
+    """Token counter using Google Gemini's native tokenizer."""
+    try:
+        # Use the LLM's built-in token counting
+        total_tokens = llm.get_num_tokens_from_messages(messages)
+        logger.debug(f"🔢 Token count: {total_tokens}")
+        return total_tokens
+    except Exception as e:
+        logger.warning(f"⚠️ Token counting failed: {e}, using character-based estimate")
+        # Fallback to character-based estimation (roughly 4 chars per token)
+        total_chars = 0
+        for message in messages:
+            if hasattr(message, 'content') and message.content:
+                total_chars += len(str(message.content))
+            elif isinstance(message, str):
+                total_chars += len(message)
+        return total_chars // 4
+
 # Define all available browser tools
 browser_tools = [
     navigate_to_url,
@@ -714,138 +844,76 @@ prompt = ChatPromptTemplate.from_messages([
 def agent_node(state: MessagesState):
     """Main agent node that processes input and decides on actions."""
     messages = state["messages"]
-    
-    # Truncate message history while preserving complete tool call/response chains
+
     logger.debug(f"📊 Processing {len(messages)} messages before trimming")
-    
-    # Separate system messages from others
-    system_messages = []
-    other_messages = []
-    
-    for msg in messages:
-        if hasattr(msg, 'type') and msg.type == 'system':
-            system_messages.append(msg)
-        else:
-            other_messages.append(msg)
-    
-    # Token-based trimming to keep under 2k tokens while preserving message integrity
-    TOKEN_LIMIT = 5000
 
-    # Start with system messages (always keep these)
-    final_messages = system_messages.copy()
-    system_tokens = custom_token_counter(system_messages)
+    # Use LangChain's built-in trim_messages function with progressive trimming
+    # This properly handles tool call/response chains and message ordering
+    TOKEN_LIMIT = 200000
 
-    if system_tokens >= TOKEN_LIMIT:
-        # System messages alone exceed limit - just keep them
-        logger.warning(f"⚠️ System messages ({system_tokens} tokens) exceed limit")
-    else:
-        # Work backwards from most recent messages to build trimmed list
-        remaining_tokens = TOKEN_LIMIT - system_tokens
-        trimmed_messages = []
+    # Try trimming with progressively lower token limits until we get a valid sequence
+    trimmed_messages = None
+    token_limits_to_try = [TOKEN_LIMIT]
 
-        # Process messages in reverse order
-        i = len(other_messages) - 1
-        while i >= 0 and remaining_tokens > 0:
-            msg = other_messages[i]
+    # Generate progressive token limits (90%, 80%, 70%, ... of original)
+    for percentage in [0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3]:
+        token_limits_to_try.append(int(TOKEN_LIMIT * percentage))
 
-            # Check if this is a tool message - if so, find its preceding assistant message
-            if hasattr(msg, 'type') and msg.type == 'tool':
-                # Find the assistant message with the tool_call that matches this tool response
-                tool_call_id = getattr(msg, 'tool_call_id', None)
+    for attempt, current_limit in enumerate(token_limits_to_try):
+        try:
+            candidate_messages = trim_messages(
+                messages=messages,
+                max_tokens=current_limit,
+                token_counter=custom_token_counter,
+                strategy="last",  # Keep most recent messages
+                allow_partial=False,  # Don't break message sequences
+                include_system=True  # Always keep system messages
+            )
 
-                # Collect all tool messages at the current position (there may be multiple)
-                tool_messages = [msg]
-                tool_call_ids = {tool_call_id} if tool_call_id else set()
-                j = i - 1
+            # Validate the trimmed messages
+            is_valid, validation_msg = validate_message_sequence(candidate_messages)
 
-                # Gather any other tool messages that are adjacent
-                while j >= 0:
-                    prev_msg = other_messages[j]
-                    if hasattr(prev_msg, 'type') and prev_msg.type == 'tool':
-                        tool_messages.insert(0, prev_msg)
-                        if hasattr(prev_msg, 'tool_call_id'):
-                            tool_call_ids.add(prev_msg.tool_call_id)
-                        j -= 1
-                    else:
-                        break
-
-                # Now find the assistant message with tool_calls
-                assistant_msg = None
-                if j >= 0:
-                    candidate = other_messages[j]
-                    if hasattr(candidate, 'tool_calls') and candidate.tool_calls:
-                        assistant_msg = candidate
-
-                if assistant_msg:
-                    # Calculate tokens for the complete chain
-                    chain = [assistant_msg] + tool_messages
-                    chain_tokens = custom_token_counter(chain)
-
-                    if chain_tokens <= remaining_tokens:
-                        # Add the complete chain
-                        trimmed_messages = chain + trimmed_messages
-                        remaining_tokens -= chain_tokens
-                        i = j - 1  # Move past the assistant message
-                    else:
-                        # Can't fit this chain - stop trimming
-                        break
-                else:
-                    # Orphaned tool message - skip it
-                    logger.warning(f"⚠️ Skipping orphaned tool message at position {i}")
-                    i -= 1
-
-            # Check if this is an assistant message with tool_calls
-            elif hasattr(msg, 'tool_calls') and msg.tool_calls:
-                # Collect all following tool responses
-                tool_call_ids = {tc.id for tc in msg.tool_calls if hasattr(tc, 'id')}
-                chain = [msg]
-                j = i + 1
-
-                # Gather tool responses
-                while j < len(other_messages) and tool_call_ids:
-                    next_msg = other_messages[j]
-                    if hasattr(next_msg, 'type') and next_msg.type == 'tool':
-                        chain.append(next_msg)
-                        if hasattr(next_msg, 'tool_call_id'):
-                            tool_call_ids.discard(next_msg.tool_call_id)
-                        j += 1
-                    else:
-                        break
-
-                # Calculate tokens for complete chain
-                chain_tokens = custom_token_counter(chain)
-
-                if chain_tokens <= remaining_tokens:
-                    # Only add if we haven't already added these messages
-                    if not trimmed_messages or trimmed_messages[0] != chain[-1]:
-                        trimmed_messages = chain + trimmed_messages
-                        remaining_tokens -= chain_tokens
-                    i -= 1
-                else:
-                    # Can't fit this chain - stop trimming
-                    break
-
-            # Regular message (human or assistant without tool_calls)
+            if is_valid:
+                trimmed_messages = candidate_messages
+                if len(trimmed_messages) < len(messages):
+                    logger.debug(f"✂️ Trimmed from {len(messages)} to {len(trimmed_messages)} messages (limit: {current_limit} tokens)")
+                break
             else:
-                msg_tokens = custom_token_counter([msg])
-                if msg_tokens <= remaining_tokens:
-                    trimmed_messages.insert(0, msg)
-                    remaining_tokens -= msg_tokens
-                    i -= 1
-                else:
-                    # Can't fit this message - stop trimming
-                    break
+                if attempt == 0:
+                    logger.debug(f"⚠️ Trimming with {current_limit} tokens creates invalid sequence: {validation_msg}")
+                    logger.debug(f"🔄 Trying with lower token limit...")
+        except Exception as e:
+            logger.debug(f"⚠️ Trimming with {current_limit} tokens failed: {e}")
+            continue
 
-        final_messages.extend(trimmed_messages)
+    # If no valid trimming found, use all messages
+    if trimmed_messages is None:
+        logger.warning(f"⚠️ Could not find valid trimming, using all {len(messages)} messages")
+        trimmed_messages = messages
 
-        if len(trimmed_messages) < len(other_messages):
-            logger.debug(f"✂️ Trimmed from {len(other_messages)} to {len(trimmed_messages)} messages to stay under {TOKEN_LIMIT} tokens")
+        # Final validation
+        is_valid, validation_msg = validate_message_sequence(trimmed_messages)
+        if not is_valid:
+            logger.error(f"❌ Even untrimmed messages are invalid: {validation_msg}")
+            logger.error("📋 Message sequence:")
+            for i, msg in enumerate(trimmed_messages):
+                msg_type = type(msg).__name__
+                has_tool_calls = hasattr(msg, 'tool_calls') and msg.tool_calls
+                logger.error(f"  [{i}] {msg_type}{' (with tool_calls)' if has_tool_calls else ''}")
+            raise ValueError(f"Invalid message sequence for Gemini API: {validation_msg}")
+
+    # Log the message sequence for debugging
+    logger.debug("📋 Message sequence being sent to Gemini:")
+    for i, msg in enumerate(trimmed_messages):
+        msg_type = type(msg).__name__
+        has_tool_calls = hasattr(msg, 'tool_calls') and msg.tool_calls
+        logger.debug(f"  [{i}] {msg_type}{' (with tool_calls)' if has_tool_calls else ''}")
 
     # Count tokens in final messages
-    token_count = custom_token_counter(final_messages)
-    logger.debug(f"📊 Final: {len(final_messages)} messages, ~{token_count} tokens")
-    
-    response = llm_with_tools.invoke(final_messages)
+    token_count = custom_token_counter(trimmed_messages)
+    logger.debug(f"📊 Final: {len(trimmed_messages)} messages, ~{token_count} tokens")
+
+    response = invoke_llm_with_rate_limit_handling(llm_with_tools, trimmed_messages)
     return {"messages": [response]}
 
 def should_continue(state: MessagesState):
@@ -859,7 +927,15 @@ def should_continue(state: MessagesState):
     
     # Check if challenge is solved
     if hasattr(last_message, 'content') and last_message.content:
-        content = last_message.content.upper()
+        # Handle both string and list content
+        if isinstance(last_message.content, str):
+            content = last_message.content.upper()
+        elif isinstance(last_message.content, list):
+            # Join list items into a single string
+            content = " ".join(str(item) for item in last_message.content).upper()
+        else:
+            content = str(last_message.content).upper()
+
         if "CHALLENGE SOLVED" in content or "FLAG{" in content or "CTF{" in content:
             return "__end__"
     
